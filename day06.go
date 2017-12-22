@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func day6() *day {
+func day06() *day {
 
 	solve := func() (interface{}, interface{}) {
 		f := openInput(6)

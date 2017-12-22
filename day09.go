@@ -2,7 +2,7 @@ package main
 
 import "bufio"
 
-func day9() *day {
+func day09() *day {
 
 	countGarbage := func(r *bufio.Reader) int {
 		count := 0

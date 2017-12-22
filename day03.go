@@ -33,7 +33,7 @@ func (s *spiral) get(x, y int) (value int, ok bool) {
 	return
 }
 
-func day3() *day {
+func day03() *day {
 
 	/*
 		steps := func(addr int) int {

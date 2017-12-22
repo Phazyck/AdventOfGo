@@ -12,7 +12,7 @@ func toDigits(bytes []byte) []byte {
 	return digits
 }
 
-func day1() *day {
+func day01() *day {
 
 	solveCaptcha := func(captcha []byte, offset int) (solution int) {
 		l := len(captcha)

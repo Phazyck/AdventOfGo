@@ -8,7 +8,7 @@ import (
 	"sort"
 )
 
-func day2() *day {
+func day02() *day {
 
 	sumRows := func(f *os.File, computeRow func([]int) int) (sum int) {
 		r := csv.NewReader(f)

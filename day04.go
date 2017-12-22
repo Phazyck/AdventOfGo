@@ -21,7 +21,7 @@ func (s sortableString) Len() int {
 	return len(s)
 }
 
-func day4() *day {
+func day04() *day {
 
 	type validator func([]string) bool
 

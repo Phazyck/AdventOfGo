@@ -85,7 +85,7 @@ func (t *tower) find(name string) (weight int, found bool) {
 	return weight, false
 }
 
-func day7() *day {
+func day07() *day {
 
 	build := func() *tower {
 		f := openInput(7)

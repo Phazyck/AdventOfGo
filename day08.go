@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func day8() *day {
+func day08() *day {
 	/*
 		type condition struct {
 			register string

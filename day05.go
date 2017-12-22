@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func day5() *day {
+func day05() *day {
 
 	traverse := func(list []int, exec func([]int, int) int) int {
 		i := 0
