@@ -1,13 +1,18 @@
-package main
+package days
 
 import (
 	"bufio"
 	"os"
 	"regexp"
 	"strings"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/stack"
 )
 
-func day12() *day {
+// Day12 is the 12th day in Advent of Code.
+func Day12() *day.Day {
 
 	readPipes := func(f *os.File) map[int][]int {
 		pipes := make(map[int][]int)
@@ -22,12 +27,12 @@ func day12() *day {
 			strL := reL.FindStringSubmatch(line)[1]
 			strR := reR.FindStringSubmatch(line)[1]
 
-			l := parseInt(strL)
+			l := common.ParseInt(strL)
 			strsR := strings.Split(strR, ", ")
 			rCount := len(strsR)
 			rs := make([]int, rCount, rCount)
 			for idx, str := range strsR {
-				rs[idx] = parseInt(str)
+				rs[idx] = common.ParseInt(str)
 			}
 
 			pipes[l] = rs
@@ -39,10 +44,10 @@ func day12() *day {
 	findGroup := func(pipes map[int][]int, id int) map[int]bool {
 		group := make(map[int]bool)
 
-		next := stack{[]int{id}}
+		next := stack.NewStack(id)
 
-		for !next.empty() {
-			id := next.pop()
+		for !next.Empty() {
+			id := next.Pop()
 
 			if group[id] {
 				continue
@@ -51,7 +56,7 @@ func day12() *day {
 			group[id] = true
 
 			values := pipes[id]
-			next.push(values...)
+			next.Push(values...)
 			delete(pipes, id)
 		}
 
@@ -59,7 +64,7 @@ func day12() *day {
 	}
 
 	solve := func() (interface{}, interface{}) {
-		f := openInput(12)
+		f := common.OpenInput(12)
 		pipes := readPipes(f)
 		group0 := findGroup(pipes, 0)
 		groupCount := 1
@@ -77,5 +82,5 @@ func day12() *day {
 		return len(group0), groupCount
 	}
 
-	return &day{12, "Digital Plumber", solve}
+	return day.NewDay(12, "Digital Plumber", solve)
 }

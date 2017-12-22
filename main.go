@@ -1,34 +1,39 @@
 package main
 
-func printAll(days []*day) {
+import (
+	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/days"
+)
+
+func printAll(days []*day.Day) {
 	for _, day := range days {
-		day.printShort()
+		day.PrintShort()
 	}
 }
 
-func printLatest(days []*day) {
+func printLatest(days []*day.Day) {
 	l := len(days)
 	i := l - 1
 	day := days[i]
-	day.printShort()
+	day.PrintShort()
 }
 
 func main() {
-	days := []*day{
-		day01(),
-		day02(),
-		day03(),
-		day04(),
-		day05(),
-		day06(),
-		day07(),
-		day08(),
-		day09(),
-		day10(),
-		day11(),
-		day12(),
+	days := []*day.Day{
+		days.Day01(),
+		days.Day02(),
+		days.Day03(),
+		days.Day04(),
+		days.Day05(),
+		days.Day06(),
+		days.Day07(),
+		days.Day08(),
+		days.Day09(),
+		days.Day10(),
+		days.Day11(),
+		days.Day12(),
 	}
 
-	//printAll(days)
-	printLatest(days)
+	printAll(days)
+	//printLatest(days)
 }

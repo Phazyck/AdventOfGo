@@ -1,20 +1,26 @@
-package main
+package days
 
-import "bufio"
+import (
+	"bufio"
 
-func day09() *day {
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
+)
+
+// Day09 is the 9th day in Advent of Code.
+func Day09() *day.Day {
 
 	countGarbage := func(r *bufio.Reader) int {
 		count := 0
 		for {
 			c, _, err := r.ReadRune()
-			check(err)
+			common.Check(err)
 			switch c {
 			case '>':
 				return count
 			case '!':
 				_, _, err = r.ReadRune()
-				check(err)
+				common.Check(err)
 			default:
 				count++
 			}
@@ -22,7 +28,7 @@ func day09() *day {
 	}
 
 	solve := func() (interface{}, interface{}) {
-		f := openInput(9)
+		f := common.OpenInput(9)
 		r := bufio.NewReader(f)
 
 		total := 0
@@ -44,7 +50,7 @@ func day09() *day {
 				score--
 			case '!':
 				_, _, err = r.ReadRune()
-				check(err)
+				common.Check(err)
 			case '<':
 				garbage += countGarbage(r)
 			}
@@ -53,5 +59,5 @@ func day09() *day {
 		return total, garbage
 	}
 
-	return &day{9, "Stream Processing", solve}
+	return day.NewDay(9, "Stream Processing", solve)
 }

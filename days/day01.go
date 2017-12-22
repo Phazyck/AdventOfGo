@@ -1,4 +1,9 @@
-package main
+package days
+
+import (
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
+)
 
 func toDigits(bytes []byte) []byte {
 	digits := make([]byte, 0)
@@ -12,7 +17,8 @@ func toDigits(bytes []byte) []byte {
 	return digits
 }
 
-func day01() *day {
+// Day01 is the 1st day in Advent of Code.
+func Day01() *day.Day {
 
 	solveCaptcha := func(captcha []byte, offset int) (solution int) {
 		l := len(captcha)
@@ -31,12 +37,12 @@ func day01() *day {
 	}
 
 	solve := func() (interface{}, interface{}) {
-		bytes := readInput(1)
+		bytes := common.ReadInput(1)
 		captcha := toDigits(bytes)
 		part1 := solveCaptcha(captcha, 1)
 		part2 := solveCaptcha(captcha, len(captcha)/2)
 		return part1, part2
 	}
 
-	return &day{1, "Inverse Captcha", solve}
+	return day.NewDay(1, "Inverse Captcha", solve)
 }

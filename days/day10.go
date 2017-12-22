@@ -1,19 +1,23 @@
-package main
+package days
 
 import (
 	"encoding/hex"
 	"strconv"
 	"strings"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
 )
 
-func day10() *day {
+// Day10 is the 10th day in Advent of Code.
+func Day10() *day.Day {
 
 	parseCommaSeparated := func(input string) []byte {
 		parts := strings.Split(input, ",")
 		bytes := make([]byte, 0)
 		for _, part := range parts {
 			i, err := strconv.ParseInt(part, 10, 9)
-			check(err)
+			common.Check(err)
 			b := byte(i)
 			bytes = append(bytes, b)
 		}
@@ -37,7 +41,7 @@ func day10() *day {
 	part1 := func() interface{} {
 		list := makeList(256)
 		var pos, skip byte
-		str := readInputLine(10)
+		str := common.ReadInputLine(10)
 		input := parseCommaSeparated(str)
 
 		for _, length := range input {
@@ -58,7 +62,7 @@ func day10() *day {
 	part2 := func() interface{} {
 		list := makeList(256)
 
-		str := readInputLine(10)
+		str := common.ReadInputLine(10)
 		input := parseASCII(str)
 		var pos, skip byte
 
@@ -102,5 +106,5 @@ func day10() *day {
 		return part1(), part2()
 	}
 
-	return &day{10, "Knot Hash", solve}
+	return day.NewDay(10, "Knot Hash", solve)
 }

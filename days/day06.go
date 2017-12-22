@@ -1,14 +1,18 @@
-package main
+package days
 
 import (
 	"bufio"
 	"fmt"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
 )
 
-func day06() *day {
+// Day06 is the 6th day in Advent of Code.
+func Day06() *day.Day {
 
 	solve := func() (interface{}, interface{}) {
-		f := openInput(6)
+		f := common.OpenInput(6)
 		scanner := bufio.NewScanner(f)
 		splitTabs := func(data []byte, atEOF bool) (advance int, token []byte, err error) {
 			// Return nothing if at end of file and no data passed
@@ -34,7 +38,7 @@ func day06() *day {
 		banks := make([]int, 0)
 		for scanner.Scan() {
 			word := scanner.Text()
-			i := parseInt(word)
+			i := common.ParseInt(word)
 			banks = append(banks, i)
 		}
 
@@ -71,5 +75,5 @@ func day06() *day {
 		return steps, size
 	}
 
-	return &day{6, "Memory Reallocation", solve}
+	return day.NewDay(6, "Memory Reallocation", solve)
 }

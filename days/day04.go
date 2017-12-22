@@ -1,10 +1,13 @@
-package main
+package days
 
 import (
 	"encoding/csv"
 	"io"
 	"os"
 	"sort"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
 )
 
 type sortableString []rune
@@ -21,7 +24,8 @@ func (s sortableString) Len() int {
 	return len(s)
 }
 
-func day04() *day {
+// Day04 is the 4th day in Advent of Code.
+func Day04() *day.Day {
 
 	type validator func([]string) bool
 
@@ -36,7 +40,7 @@ func day04() *day {
 			if err == io.EOF {
 				break
 			}
-			check(err)
+			common.Check(err)
 
 			valid := validate(record)
 
@@ -49,7 +53,7 @@ func day04() *day {
 	}
 
 	part1 := func() interface{} {
-		f := openInput(4)
+		f := common.OpenInput(4)
 		validate := func(words []string) bool {
 			used := make(map[string]bool)
 
@@ -67,7 +71,7 @@ func day04() *day {
 	}
 
 	part2 := func() interface{} {
-		f := openInput(4)
+		f := common.OpenInput(4)
 		validate := func(words []string) bool {
 			used := make(map[string]bool)
 
@@ -90,5 +94,5 @@ func day04() *day {
 		return part1(), part2()
 	}
 
-	return &day{4, "High-Entropy Passphrases", solve}
+	return day.NewDay(4, "High-Entropy Passphrases", solve)
 }

@@ -1,11 +1,15 @@
-package main
+package days
 
 import (
 	"bufio"
 	"os"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
 )
 
-func day05() *day {
+// Day05 is the 5th day in Advent of Code.
+func Day05() *day.Day {
 
 	traverse := func(list []int, exec func([]int, int) int) int {
 		i := 0
@@ -28,7 +32,7 @@ func day05() *day {
 		for scanner.Scan() {
 			line := scanner.Text()
 
-			i := parseInt(line)
+			i := common.ParseInt(line)
 
 			ints = append(ints, i)
 		}
@@ -37,7 +41,7 @@ func day05() *day {
 	}
 
 	part1 := func() interface{} {
-		f := openInput(5)
+		f := common.OpenInput(5)
 		list := readInts(f)
 
 		exec := func(list []int, i int) int {
@@ -50,7 +54,7 @@ func day05() *day {
 	}
 
 	part2 := func() interface{} {
-		f := openInput(5)
+		f := common.OpenInput(5)
 		list := readInts(f)
 
 		exec := func(list []int, i int) int {
@@ -71,5 +75,5 @@ func day05() *day {
 		return part1(), part2()
 	}
 
-	return &day{5, "A Maze of Twisty Trampolines, All Alike", solve}
+	return day.NewDay(5, "A Maze of Twisty Trampolines, All Alike", solve)
 }

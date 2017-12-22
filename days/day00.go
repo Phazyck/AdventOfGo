@@ -1,0 +1,22 @@
+package days
+
+import "github.com/Phazyck/AdventOfGo/day"
+
+// Day00 is the 0th day in Advent of Code.
+// (Actually, it's a template for implementing days.)
+func Day00() *day.Day {
+
+	part1 := func() interface{} {
+		return -1
+	}
+
+	part2 := func() interface{} {
+		return -1
+	}
+
+	solve := func() (interface{}, interface{}) {
+		return part1(), part2()
+	}
+
+	return day.NewDay(00, "Title", solve)
+}

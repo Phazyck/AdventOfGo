@@ -1,4 +1,6 @@
-package main
+package days
+
+import "github.com/Phazyck/AdventOfGo/day"
 
 func abs(i int) int {
 	if i < 0 {
@@ -33,7 +35,8 @@ func (s *spiral) get(x, y int) (value int, ok bool) {
 	return
 }
 
-func day03() *day {
+// Day03 is the 3rd day in Advent of Code.
+func Day03() *day.Day {
 
 	/*
 		steps := func(addr int) int {
@@ -135,5 +138,5 @@ func day03() *day {
 		return part1(), part2()
 	}
 
-	return &day{3, "Spiral Memory", solve}
+	return day.NewDay(3, "Spiral Memory", solve)
 }

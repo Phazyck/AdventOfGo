@@ -1,9 +1,12 @@
-package main
+package days
 
 import (
 	"bufio"
 	"regexp"
 	"strings"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
 )
 
 type tower struct {
@@ -85,10 +88,11 @@ func (t *tower) find(name string) (weight int, found bool) {
 	return weight, false
 }
 
-func day07() *day {
+// Day07 is the 7th day in Advent of Code.
+func Day07() *day.Day {
 
 	build := func() *tower {
-		f := openInput(7)
+		f := common.OpenInput(7)
 
 		scanner := bufio.NewScanner(f)
 
@@ -109,7 +113,7 @@ func day07() *day {
 
 			mNameAndWeight := reNameAndWeight.FindStringSubmatch(line)
 			name := mNameAndWeight[1]
-			weight := parseInt(mNameAndWeight[2])
+			weight := common.ParseInt(mNameAndWeight[2])
 
 			candidates[name] = true
 
@@ -147,5 +151,5 @@ func day07() *day {
 		return part1, part2
 	}
 
-	return &day{7, "Recursive Circus", solve}
+	return day.NewDay(7, "Recursive Circus", solve)
 }

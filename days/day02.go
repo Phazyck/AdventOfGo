@@ -1,4 +1,4 @@
-package main
+package days
 
 import (
 	"encoding/csv"
@@ -6,9 +6,13 @@ import (
 	"math"
 	"os"
 	"sort"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
 )
 
-func day02() *day {
+// Day02 is the 2nd day in Advent of Code.
+func Day02() *day.Day {
 
 	sumRows := func(f *os.File, computeRow func([]int) int) (sum int) {
 		r := csv.NewReader(f)
@@ -19,12 +23,12 @@ func day02() *day {
 			if err == io.EOF {
 				break
 			}
-			check(err)
+			common.Check(err)
 
 			row := make([]int, len(record))
 
 			for idx, value := range record {
-				i := parseInt(value)
+				i := common.ParseInt(value)
 				row[idx] = i
 			}
 
@@ -51,7 +55,7 @@ func day02() *day {
 			return max - min
 		}
 
-		f := openInput(2)
+		f := common.OpenInput(2)
 		s := sumRows(f, checkRow)
 		return s
 	}
@@ -73,7 +77,7 @@ func day02() *day {
 			panic("This shouldn't happen!")
 		}
 
-		f := openInput(2)
+		f := common.OpenInput(2)
 		s := sumRows(f, checkRow)
 		return s
 	}
@@ -82,5 +86,5 @@ func day02() *day {
 		return part1(), part2()
 	}
 
-	return &day{2, "Corruption Checksum", solve}
+	return day.NewDay(2, "Corruption common.Checksum", solve)
 }

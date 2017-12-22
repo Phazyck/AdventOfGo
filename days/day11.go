@@ -1,6 +1,11 @@
-package main
+package days
 
-import "strings"
+import (
+	"strings"
+
+	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/day"
+)
 
 func solveInput(input string) (interface{}, interface{}) {
 	steps := strings.Split(input, ",")
@@ -64,12 +69,13 @@ func solveInput(input string) (interface{}, interface{}) {
 	return count, max
 }
 
-func day11() *day {
+// Day11 is the 11th day in Advent of Code.
+func Day11() *day.Day {
 	solve := func() (interface{}, interface{}) {
-		input := readInputLine(11)
+		input := common.ReadInputLine(11)
 		part1, part2 := solveInput(input)
 		return part1, part2
 	}
 
-	return &day{11, "Hex Ed", solve}
+	return day.NewDay(11, "Hex Ed", solve)
 }
