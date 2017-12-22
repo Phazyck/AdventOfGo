@@ -1,6 +1,6 @@
 package main
 
-func dayX() *day {
+func day00() *day {
 
 	part1 := func() interface{} {
 		return -1
@@ -14,5 +14,5 @@ func dayX() *day {
 		return part1(), part2()
 	}
 
-	return &day{-1, "Title", solve}
+	return &day{00, "Title", solve}
 }
