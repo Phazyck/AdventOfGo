@@ -10,7 +10,7 @@ type day struct {
 
 func (d *day) print() {
 	part1, part2 := d.solve()
-	fmt.Printf("--- Day %d: %s ---\n", d.number, d.title)
+	fmt.Printf("--- Day %02d: %s ---\n", d.number, d.title)
 	fmt.Println(part1)
 	fmt.Println()
 	fmt.Println("--- Part Two ---")
@@ -20,6 +20,6 @@ func (d *day) print() {
 
 func (d *day) printShort() {
 	part1, part2 := d.solve()
-	fmt.Printf("[%d.1] %v\n", d.number, part1)
-	fmt.Printf("[%d.2] %v\n", d.number, part2)
+	fmt.Printf("[%02d.1] %v\n", d.number, part1)
+	fmt.Printf("[%02d.2] %v\n", d.number, part2)
 }
