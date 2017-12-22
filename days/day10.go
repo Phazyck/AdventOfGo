@@ -2,11 +2,11 @@ package days
 
 import (
 	"encoding/hex"
-	"strconv"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 // Day10 is the 10th day in Advent of Code.
@@ -16,8 +16,7 @@ func Day10() *day.Day {
 		parts := strings.Split(input, ",")
 		bytes := make([]byte, 0)
 		for _, part := range parts {
-			i, err := strconv.ParseInt(part, 10, 9)
-			common.Check(err)
+			i := parse.AssertByte(part)
 			b := byte(i)
 			bytes = append(bytes, b)
 		}
@@ -41,7 +40,7 @@ func Day10() *day.Day {
 	part1 := func() interface{} {
 		list := makeList(256)
 		var pos, skip byte
-		str := common.ReadInputLine(10)
+		str := input.ReadLine(10)
 		input := parseCommaSeparated(str)
 
 		for _, length := range input {
@@ -62,7 +61,7 @@ func Day10() *day.Day {
 	part2 := func() interface{} {
 		list := makeList(256)
 
-		str := common.ReadInputLine(10)
+		str := input.ReadLine(10)
 		input := parseASCII(str)
 		var pos, skip byte
 

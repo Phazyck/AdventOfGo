@@ -5,8 +5,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 type tower struct {
@@ -92,7 +93,7 @@ func (t *tower) find(name string) (weight int, found bool) {
 func Day07() *day.Day {
 
 	build := func() *tower {
-		f := common.OpenInput(7)
+		f := input.Open(7)
 
 		scanner := bufio.NewScanner(f)
 
@@ -113,7 +114,7 @@ func Day07() *day.Day {
 
 			mNameAndWeight := reNameAndWeight.FindStringSubmatch(line)
 			name := mNameAndWeight[1]
-			weight := common.ParseInt(mNameAndWeight[2])
+			weight := parse.AssertInt(mNameAndWeight[2])
 
 			candidates[name] = true
 

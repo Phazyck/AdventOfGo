@@ -4,8 +4,9 @@ import (
 	"bufio"
 	"os"
 
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 // Day05 is the 5th day in Advent of Code.
@@ -32,7 +33,7 @@ func Day05() *day.Day {
 		for scanner.Scan() {
 			line := scanner.Text()
 
-			i := common.ParseInt(line)
+			i := parse.AssertInt(line)
 
 			ints = append(ints, i)
 		}
@@ -41,7 +42,7 @@ func Day05() *day.Day {
 	}
 
 	part1 := func() interface{} {
-		f := common.OpenInput(5)
+		f := input.Open(5)
 		list := readInts(f)
 
 		exec := func(list []int, i int) int {
@@ -54,7 +55,7 @@ func Day05() *day.Day {
 	}
 
 	part2 := func() interface{} {
-		f := common.OpenInput(5)
+		f := input.Open(5)
 		list := readInts(f)
 
 		exec := func(list []int, i int) int {

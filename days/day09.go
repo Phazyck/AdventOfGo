@@ -3,8 +3,9 @@ package days
 import (
 	"bufio"
 
-	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/assert"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
 )
 
 // Day09 is the 9th day in Advent of Code.
@@ -14,13 +15,13 @@ func Day09() *day.Day {
 		count := 0
 		for {
 			c, _, err := r.ReadRune()
-			common.Check(err)
+			assert.IsNil(err)
 			switch c {
 			case '>':
 				return count
 			case '!':
 				_, _, err = r.ReadRune()
-				common.Check(err)
+				assert.IsNil(err)
 			default:
 				count++
 			}
@@ -28,7 +29,7 @@ func Day09() *day.Day {
 	}
 
 	solve := func() (interface{}, interface{}) {
-		f := common.OpenInput(9)
+		f := input.Open(9)
 		r := bufio.NewReader(f)
 
 		total := 0
@@ -50,7 +51,7 @@ func Day09() *day.Day {
 				score--
 			case '!':
 				_, _, err = r.ReadRune()
-				common.Check(err)
+				assert.IsNil(err)
 			case '<':
 				garbage += countGarbage(r)
 			}

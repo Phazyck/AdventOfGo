@@ -3,8 +3,8 @@ package days
 import (
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
 )
 
 func solveInput(input string) (interface{}, interface{}) {
@@ -72,7 +72,7 @@ func solveInput(input string) (interface{}, interface{}) {
 // Day11 is the 11th day in Advent of Code.
 func Day11() *day.Day {
 	solve := func() (interface{}, interface{}) {
-		input := common.ReadInputLine(11)
+		input := input.ReadLine(11)
 		part1, part2 := solveInput(input)
 		return part1, part2
 	}

@@ -6,8 +6,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/Phazyck/AdventOfGo/parse"
 	"github.com/Phazyck/AdventOfGo/stack"
 )
 
@@ -27,12 +28,12 @@ func Day12() *day.Day {
 			strL := reL.FindStringSubmatch(line)[1]
 			strR := reR.FindStringSubmatch(line)[1]
 
-			l := common.ParseInt(strL)
+			l := parse.AssertInt(strL)
 			strsR := strings.Split(strR, ", ")
 			rCount := len(strsR)
 			rs := make([]int, rCount, rCount)
 			for idx, str := range strsR {
-				rs[idx] = common.ParseInt(str)
+				rs[idx] = parse.AssertInt(str)
 			}
 
 			pipes[l] = rs
@@ -64,7 +65,7 @@ func Day12() *day.Day {
 	}
 
 	solve := func() (interface{}, interface{}) {
-		f := common.OpenInput(12)
+		f := input.Open(12)
 		pipes := readPipes(f)
 		group0 := findGroup(pipes, 0)
 		groupCount := 1

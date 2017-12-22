@@ -6,8 +6,9 @@ import (
 	"math"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 // Day08 is the 8th day in Advent of Code.
@@ -58,7 +59,7 @@ func Day08() *day.Day {
 	solve := func() (interface{}, interface{}) {
 		registers := make(map[string]int)
 
-		f := common.OpenInput(8)
+		f := input.Open(8)
 
 		scanner := bufio.NewScanner(f)
 		allTimeMax := math.MinInt64
@@ -69,7 +70,7 @@ func Day08() *day.Day {
 
 			register := segments[4]
 			operator := segments[5]
-			value := common.ParseInt(segments[6])
+			value := parse.AssertInt(segments[6])
 
 			if !eval(registers[register], operator, value) {
 				continue
@@ -77,7 +78,7 @@ func Day08() *day.Day {
 
 			register = segments[0]
 			operator = segments[1]
-			value = common.ParseInt(segments[2])
+			value = parse.AssertInt(segments[2])
 
 			if operator == "inc" {
 				registers[register] += value

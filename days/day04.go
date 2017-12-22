@@ -6,8 +6,9 @@ import (
 	"os"
 	"sort"
 
-	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/assert"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
 )
 
 type sortableString []rune
@@ -40,7 +41,7 @@ func Day04() *day.Day {
 			if err == io.EOF {
 				break
 			}
-			common.Check(err)
+			assert.IsNil(err)
 
 			valid := validate(record)
 
@@ -53,7 +54,7 @@ func Day04() *day.Day {
 	}
 
 	part1 := func() interface{} {
-		f := common.OpenInput(4)
+		f := input.Open(4)
 		validate := func(words []string) bool {
 			used := make(map[string]bool)
 
@@ -71,7 +72,7 @@ func Day04() *day.Day {
 	}
 
 	part2 := func() interface{} {
-		f := common.OpenInput(4)
+		f := input.Open(4)
 		validate := func(words []string) bool {
 			used := make(map[string]bool)
 

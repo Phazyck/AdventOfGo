@@ -1,8 +1,8 @@
 package days
 
 import (
-	"github.com/Phazyck/AdventOfGo/common"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
 )
 
 func toDigits(bytes []byte) []byte {
@@ -37,7 +37,7 @@ func Day01() *day.Day {
 	}
 
 	solve := func() (interface{}, interface{}) {
-		bytes := common.ReadInput(1)
+		bytes := input.Read(1)
 		captcha := toDigits(bytes)
 		part1 := solveCaptcha(captcha, 1)
 		part2 := solveCaptcha(captcha, len(captcha)/2)

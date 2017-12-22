@@ -7,8 +7,10 @@ import (
 	"os"
 	"sort"
 
-	"github.com/Phazyck/AdventOfGo/common"
+	"github.com/Phazyck/AdventOfGo/assert"
 	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 // Day02 is the 2nd day in Advent of Code.
@@ -23,12 +25,12 @@ func Day02() *day.Day {
 			if err == io.EOF {
 				break
 			}
-			common.Check(err)
+			assert.IsNil(err)
 
 			row := make([]int, len(record))
 
 			for idx, value := range record {
-				i := common.ParseInt(value)
+				i := parse.AssertInt(value)
 				row[idx] = i
 			}
 
@@ -55,7 +57,7 @@ func Day02() *day.Day {
 			return max - min
 		}
 
-		f := common.OpenInput(2)
+		f := input.Open(2)
 		s := sumRows(f, checkRow)
 		return s
 	}
@@ -77,7 +79,7 @@ func Day02() *day.Day {
 			panic("This shouldn't happen!")
 		}
 
-		f := common.OpenInput(2)
+		f := input.Open(2)
 		s := sumRows(f, checkRow)
 		return s
 	}
@@ -86,5 +88,5 @@ func Day02() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(2, "Corruption common.Checksum", solve)
+	return day.NewDay(2, "Corruption parse.Checksum", solve)
 }
