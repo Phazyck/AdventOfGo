@@ -105,5 +105,5 @@ func Day10() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(10, "Knot Hash", solve)
+	return day.New(10, "Knot Hash", solve)
 }

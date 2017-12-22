@@ -44,5 +44,5 @@ func Day01() *day.Day {
 		return part1, part2
 	}
 
-	return day.NewDay(1, "Inverse Captcha", solve)
+	return day.New(1, "Inverse Captcha", solve)
 }

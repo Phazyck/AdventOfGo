@@ -102,5 +102,5 @@ func Day08() *day.Day {
 		return max, allTimeMax
 	}
 
-	return day.NewDay(8, "I Heard You Like Registers", solve)
+	return day.New(8, "I Heard You Like Registers", solve)
 }

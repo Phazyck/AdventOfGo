@@ -76,5 +76,5 @@ func Day05() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(5, "A Maze of Twisty Trampolines, All Alike", solve)
+	return day.New(5, "A Maze of Twisty Trampolines, All Alike", solve)
 }

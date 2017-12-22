@@ -76,5 +76,5 @@ func Day06() *day.Day {
 		return steps, size
 	}
 
-	return day.NewDay(6, "Memory Reallocation", solve)
+	return day.New(6, "Memory Reallocation", solve)
 }

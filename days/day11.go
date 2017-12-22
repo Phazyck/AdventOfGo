@@ -77,5 +77,5 @@ func Day11() *day.Day {
 		return part1, part2
 	}
 
-	return day.NewDay(11, "Hex Ed", solve)
+	return day.New(11, "Hex Ed", solve)
 }

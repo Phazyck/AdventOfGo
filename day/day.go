@@ -12,8 +12,8 @@ type Day struct {
 	solve  Solver
 }
 
-// NewDay returns a new day with the given values assigned.
-func NewDay(number int, title string, solve Solver) *Day {
+// New returns a new day with the given values assigned.
+func New(number int, title string, solve Solver) *Day {
 	return &Day{number, title, solve}
 }
 

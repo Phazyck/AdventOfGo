@@ -60,5 +60,5 @@ func Day09() *day.Day {
 		return total, garbage
 	}
 
-	return day.NewDay(9, "Stream Processing", solve)
+	return day.New(9, "Stream Processing", solve)
 }

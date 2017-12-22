@@ -95,5 +95,5 @@ func Day04() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(4, "High-Entropy Passphrases", solve)
+	return day.New(4, "High-Entropy Passphrases", solve)
 }

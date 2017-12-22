@@ -152,5 +152,5 @@ func Day07() *day.Day {
 		return part1, part2
 	}
 
-	return day.NewDay(7, "Recursive Circus", solve)
+	return day.New(7, "Recursive Circus", solve)
 }

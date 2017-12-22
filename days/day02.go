@@ -88,5 +88,5 @@ func Day02() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(2, "Corruption parse.Checksum", solve)
+	return day.New(2, "Corruption parse.Checksum", solve)
 }

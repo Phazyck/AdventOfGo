@@ -45,7 +45,7 @@ func Day12() *day.Day {
 	findGroup := func(pipes map[int][]int, id int) map[int]bool {
 		group := make(map[int]bool)
 
-		next := stack.NewStack(id)
+		next := stack.New(id)
 
 		for !next.Empty() {
 			id := next.Pop()
@@ -83,5 +83,5 @@ func Day12() *day.Day {
 		return len(group0), groupCount
 	}
 
-	return day.NewDay(12, "Digital Plumber", solve)
+	return day.New(12, "Digital Plumber", solve)
 }

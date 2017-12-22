@@ -138,5 +138,5 @@ func Day03() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(3, "Spiral Memory", solve)
+	return day.New(3, "Spiral Memory", solve)
 }

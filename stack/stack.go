@@ -5,8 +5,8 @@ type Stack struct {
 	values []int
 }
 
-// NewStack returns a new stack with the given values.
-func NewStack(values ...int) *Stack {
+// New returns a new stack with the given values.
+func New(values ...int) *Stack {
 	return &Stack{values}
 }
 

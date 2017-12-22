@@ -18,5 +18,5 @@ func Day00() *day.Day {
 		return part1(), part2()
 	}
 
-	return day.NewDay(00, "Title", solve)
+	return day.New(00, "Title", solve)
 }
