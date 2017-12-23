@@ -2,7 +2,7 @@ package days
 
 import "github.com/Phazyck/AdventOfGo/day"
 
-// Day00 is the 0th day in Advent of Code.
+// Day00 is the 00th day in Advent of Code.
 // (Actually, it's a template for implementing days.)
 func Day00() *day.Day {
 

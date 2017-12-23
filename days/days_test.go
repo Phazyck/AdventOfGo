@@ -63,6 +63,19 @@ func TestDay10Solutions(t *testing.T) {
 	testDay(t, Day10(), 15990, "90adb097dd55dea8305c900372258ac6")
 }
 
+func testDay11Example(t *testing.T, input string, expected interface{}) {
+	actual, _ := solveInput(input)
+	test.AssertEqual(t, actual, expected)
+}
+
+// TestDay11Examples tests that solveInput works for the examples of day 11
+func TestDay11Examples(t *testing.T) {
+	testDay11Example(t, "ne,ne,ne", 3)
+	testDay11Example(t, "ne,ne,sw,sw", 0)
+	testDay11Example(t, "ne,ne,s,s", 2)
+	testDay11Example(t, "se,sw,se,sw,sw", 3)
+}
+
 // TestDay11Solutions tests that the solutions for day 11 are correct.
 func TestDay11Solutions(t *testing.T) {
 	testDay(t, Day11(), 675, 1424)
@@ -78,26 +91,11 @@ func TestDay13Solutions(t *testing.T) {
 	testDay(t, Day13(), 1504, 3823370)
 }
 
-// TestDay11Example1 tests that solveInput works for the 1st example of day 11
-func TestDay11Example1(t *testing.T) {
-	result, _ := solveInput("ne,ne,ne")
-	test.AssertEqual(t, result, 3)
-}
+// TestDay14Solutions tests that the solutions for day 14 are correct.
+func TestDay14Solutions(t *testing.T) {
+	used, regions := solveDay14("flqrgnkx")
+	test.AssertEqual(t, used, 8108)
+	test.AssertEqual(t, regions, 1242)
 
-// TestDay11Example2 tests that solveInput works for the 2nd example of day 11
-func TestDay11Example2(t *testing.T) {
-	result, _ := solveInput("ne,ne,sw,sw")
-	test.AssertEqual(t, result, 0)
-}
-
-// TestDay11Example3 tests that solveInput works for the 3rd example of day 11
-func TestDay11Example3(t *testing.T) {
-	result, _ := solveInput("ne,ne,s,s")
-	test.AssertEqual(t, result, 2)
-}
-
-// TestDay11Example4 tests that solveInput works for the 4th example of day 11
-func TestDay11Example4(t *testing.T) {
-	result, _ := solveInput("se,sw,se,sw,sw")
-	test.AssertEqual(t, result, 3)
+	testDay(t, Day14(), 8148, 1180)
 }
