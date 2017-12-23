@@ -32,8 +32,9 @@ func main() {
 		days.Day10(),
 		days.Day11(),
 		days.Day12(),
+		days.Day13(),
 	}
 
-	printAll(days)
-	//printLatest(days)
+	//printAll(days)
+	printLatest(days)
 }

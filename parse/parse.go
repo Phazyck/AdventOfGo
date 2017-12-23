@@ -16,6 +16,18 @@ func AssertInt(str string) int {
 	return i
 }
 
+// AssertInts parses a slice of integers a string of sub-strings, separated by a given separator.
+// If any sub-string does not contain an integer, it panics.
+func AssertInts(str, separator string) []int {
+	strs := strings.Split(str, separator)
+	count := len(strs)
+	ints := make([]int, count, count)
+	for i, s := range strs {
+		ints[i] = AssertInt(s)
+	}
+	return ints
+}
+
 // AssertByte parses a byte from the given string, ignoring whitespace and newlines.
 // If the string does not contain an byte, it panics.
 func AssertByte(str string) byte {

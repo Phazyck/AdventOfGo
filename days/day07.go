@@ -2,12 +2,11 @@ package days
 
 import (
 	"bufio"
-	"regexp"
+	"fmt"
 	"strings"
 
 	"github.com/Phazyck/AdventOfGo/day"
 	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 type tower struct {
@@ -104,24 +103,23 @@ func Day07() *day.Day {
 			"",
 		}
 
-		reNameAndWeight := regexp.MustCompile("(.*) \\((.*)\\)")
-		reChildren := regexp.MustCompile("-> (.*)")
-
 		candidates := make(map[string]bool)
 
 		for scanner.Scan() {
 			line := scanner.Text()
 
-			mNameAndWeight := reNameAndWeight.FindStringSubmatch(line)
-			name := mNameAndWeight[1]
-			weight := parse.AssertInt(mNameAndWeight[2])
+			var name string
+			var weight int
+			fmt.Sscanf(line, "%s (%d)", &name, &weight)
 
 			candidates[name] = true
 
-			mChildren := reChildren.FindStringSubmatch(line)
 			var above []string
-			if len(mChildren) == 2 {
-				above = strings.Split(mChildren[1], ", ")
+			arrow := " -> "
+			i := strings.Index(line, arrow)
+			if i >= 0 {
+				values := line[i+len(arrow):]
+				above = strings.Split(values, ", ")
 				for _, n := range above {
 					delete(candidates, n)
 				}

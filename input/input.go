@@ -5,13 +5,23 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path"
+	"runtime"
 
 	"github.com/Phazyck/AdventOfGo/assert"
 )
 
+func getPath(day int) string {
+	_, f, _, ok := runtime.Caller(0)
+	assert.IsTrue(ok)
+	dir := path.Dir(f)
+	path := path.Join(dir, fmt.Sprintf("day%02d", day), "input.txt")
+	return path
+}
+
 // Read reads the contents of the input file for the given day as a slice of bytes.
 func Read(day int) []byte {
-	path := fmt.Sprintf("./input/day%d/input.txt", day)
+	path := getPath(day)
 	dat, err := ioutil.ReadFile(path)
 	assert.IsNil(err)
 	return dat
@@ -19,7 +29,7 @@ func Read(day int) []byte {
 
 // Open opens the input file for the given day.
 func Open(day int) *os.File {
-	path := fmt.Sprintf("./input/day%d/input.txt", day)
+	path := getPath(day)
 	f, err := os.Open(path)
 	assert.IsNil(err)
 	return f

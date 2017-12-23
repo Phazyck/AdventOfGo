@@ -17,6 +17,11 @@ func New(number int, title string, solve Solver) *Day {
 	return &Day{number, title, solve}
 }
 
+// Solutions returns the solutions for the given day.
+func (d *Day) Solutions() (interface{}, interface{}) {
+	return d.solve()
+}
+
 // Print pretty-prints the information for a given day on multiple lines.
 func (d *Day) Print() {
 	part1, part2 := d.solve()

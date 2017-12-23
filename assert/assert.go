@@ -6,3 +6,10 @@ func IsNil(v interface{}) {
 		panic(v)
 	}
 }
+
+// IsTrue panics if the given value is not true.
+func IsTrue(b bool) {
+	if !b {
+		panic(b)
+	}
+}

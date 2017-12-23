@@ -3,7 +3,6 @@ package days
 import (
 	"bufio"
 	"os"
-	"regexp"
 	"strings"
 
 	"github.com/Phazyck/AdventOfGo/day"
@@ -19,22 +18,12 @@ func Day12() *day.Day {
 		pipes := make(map[int][]int)
 		scanner := bufio.NewScanner(f)
 
-		reL := regexp.MustCompile("(.*) <->")
-		reR := regexp.MustCompile("<-> (.*)")
-
 		for scanner.Scan() {
 			line := scanner.Text()
 
-			strL := reL.FindStringSubmatch(line)[1]
-			strR := reR.FindStringSubmatch(line)[1]
-
-			l := parse.AssertInt(strL)
-			strsR := strings.Split(strR, ", ")
-			rCount := len(strsR)
-			rs := make([]int, rCount, rCount)
-			for idx, str := range strsR {
-				rs[idx] = parse.AssertInt(str)
-			}
+			parts := strings.Split(line, " <-> ")
+			l := parse.AssertInt(parts[0])
+			rs := parse.AssertInts(parts[1], ", ")
 
 			pipes[l] = rs
 		}

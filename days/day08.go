@@ -4,11 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"math"
-	"strings"
 
 	"github.com/Phazyck/AdventOfGo/day"
 	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
 )
 
 // Day08 is the 8th day in Advent of Code.
@@ -66,28 +64,27 @@ func Day08() *day.Day {
 
 		for scanner.Scan() {
 			line := scanner.Text()
-			segments := strings.Split(line, " ")
 
-			register := segments[4]
-			operator := segments[5]
-			value := parse.AssertInt(segments[6])
+			var rMod, rTst string // (r)egisters
+			var oMod, oTst string // (o)perators
+			var vMod, vTst int    // (v)alues
+			fmt.Sscanf(line, "%s %s %d if %s %s %d", &rMod, &oMod, &vMod, &rTst, &oTst, &vTst)
 
-			if !eval(registers[register], operator, value) {
+			if !eval(registers[rTst], oTst, vTst) {
 				continue
 			}
 
-			register = segments[0]
-			operator = segments[1]
-			value = parse.AssertInt(segments[2])
-
-			if operator == "inc" {
-				registers[register] += value
+			value := registers[rMod]
+			if oMod == "inc" {
+				value += vMod
 			} else {
-				registers[register] -= value
+				value -= vMod
 			}
 
-			if registers[register] > allTimeMax {
-				allTimeMax = registers[register]
+			registers[rMod] = value
+
+			if value > allTimeMax {
+				allTimeMax = value
 			}
 		}
 
