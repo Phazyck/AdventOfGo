@@ -47,3 +47,21 @@ func ReadLine(day int) string {
 
 	panic("Uh-oh!")
 }
+
+// ReadLines reads the first n lines of the input file for the given day, as a slice of strings.
+func ReadLines(day, n int) []string {
+	file := Open(day)
+	scanner := bufio.NewScanner(file)
+	lines := make([]string, n)
+
+	i := 0
+	for scanner.Scan() {
+		lines[i] = scanner.Text()
+		i++
+		if i == n {
+			return lines
+		}
+	}
+
+	panic("Uh-oh!")
+}
