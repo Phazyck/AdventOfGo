@@ -203,3 +203,38 @@ func TestDay15Examples(t *testing.T) {
 func TestDay15Solutions(t *testing.T) {
 	testDay(t, Day15(), 609, 253)
 }
+
+// TestDay16Examples tests that solveInput works for the examples of day 16
+func TestDay16Examples(t *testing.T) {
+
+	ps := newPrograms(5)
+
+	var actual, expected string
+	var mv move
+
+	mv = parseMove("s1")
+	test.AssertEqual(t, mv, moveSpin(1))
+	mv.apply(ps)
+	actual = ps.String()
+	expected = "eabcd"
+	test.AssertEqual(t, actual, expected)
+
+	mv = parseMove("x3/4")
+	test.AssertEqual(t, mv, moveExchange{3, 4})
+	mv.apply(ps)
+	actual = ps.String()
+	expected = "eabdc"
+	test.AssertEqual(t, actual, expected)
+
+	mv = parseMove("pe/b")
+	test.AssertEqual(t, mv, movePartner{'e', 'b'})
+	mv.apply(ps)
+	actual = ps.String()
+	expected = "baedc"
+	test.AssertEqual(t, actual, expected)
+}
+
+// TestDay16Solutions tests that the solutions for day 16 are correct.
+func TestDay16Solutions(t *testing.T) {
+	testDay(t, Day16(), "ehdpincaogkblmfj", "bpcekomfgjdlinha")
+}

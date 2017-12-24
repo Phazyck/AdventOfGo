@@ -28,6 +28,16 @@ func AssertInts(str, separator string) []int {
 	return ints
 }
 
+// AssertChar parses a single char from the given string.
+// If the string contains anything but a single char, it will panic.
+func AssertChar(str string) byte {
+	if len(str) != 1 {
+		panic(str)
+	}
+
+	return str[0]
+}
+
 // AssertByte parses a byte from the given string, ignoring whitespace and newlines.
 // If the string does not contain an byte, it panics.
 func AssertByte(str string) byte {
