@@ -241,8 +241,8 @@ func TestDay16Solutions(t *testing.T) {
 
 // TestDay17Examples tests that solveInput works for the examples of day 17
 func TestDay17Examples(t *testing.T) {
-	sl := newSpinlock(3, 2018)
-	expectedStrings := []string {
+	sl := newSpinlock(3, 10)
+	expectedStrings := []string{
 		"(0)",
 		"0 (1)",
 		"0 (2) 1",
@@ -256,7 +256,7 @@ func TestDay17Examples(t *testing.T) {
 	}
 
 	for i, expected := range expectedStrings {
-		sl.advanceTo(i+1)
+		sl.advanceTo(i + 1)
 		actual := sl.String()
 		test.AssertEqual(t, actual, expected)
 	}
@@ -264,5 +264,47 @@ func TestDay17Examples(t *testing.T) {
 
 // TestDay17Solutions tests that the solutions for day 17 are correct.
 func TestDay17Solutions(t *testing.T) {
-	testDay(t, Day17(), 1914, -1)
+	testDay(t, Day17(), 1914, 41797835)
+}
+
+// TestDay18Examples tests that solveInput works for the examples of day 18
+func TestDay18Examples(t *testing.T) {
+	ipt := []string{
+		"set a 1",
+		"add a 2",
+		"mul a a",
+		"mod a 5",
+		"snd a",
+		"set a 0",
+		"rcv a",
+		"jgz a -1",
+		"set a 1",
+		"jgz a -2",
+	}
+
+	iss := parseInstructions(ipt)
+
+	d := newDuet()
+
+	isc := 0
+	for {
+		ins := iss[isc]
+		jmp, rcv := d.exec(ins)
+		isc += jmp
+		if rcv {
+			break
+		}
+	}
+
+	test.AssertEqual(t, d.snd, 4)
+}
+
+// TestDay18Solutions tests that the solutions for day 18 are correct.
+func TestDay18Solutions(t *testing.T) {
+	testDay(t, Day18(), 8600, 7239)
+}
+
+// TestDay19Solutions tests that the solutions for day 19 are correct.
+func TestDay19Solutions(t *testing.T) {
+	testDay(t, Day19(), "GINOWKYXH", 16636)
 }

@@ -1,106 +1,104 @@
 package days
 
 import (
-	"fmt"
 	"bytes"
+	"fmt"
 
 	"github.com/Phazyck/AdventOfGo/day"
 )
 
+type node struct {
+	val int
+	nxt *node
+}
+
 type spinlock struct {
-	buf []int
-	pos int
+	nds []node
+	cur *node
 	stp int
-	cap int
+	siz int
 }
 
 func newSpinlock(stp, cap int) *spinlock {
-	buf := make([]int, 1, cap)
-	pos := 0
-	return &spinlock{buf,pos,stp,cap}
+	nds := make([]node, cap, cap)
+	for i := 0; i < cap; i++ {
+		nds[i].val = i
+	}
+	cur := &nds[0]
+	return &spinlock{nds, cur, stp, 1}
 }
 
 func (sl *spinlock) advanceTo(size int) {
-	for len(sl.buf) < size {
-		i := len(sl.buf)
-		
-		sl.pos = ((sl.pos + sl.stp) % i) + 1
-	
-		// insert at pos
-		sl.buf = append(sl.buf, 0)
-		dst := sl.buf[sl.pos+1:]
-		src := sl.buf[sl.pos:]
-		copy(dst, src)
-		sl.buf[sl.pos] = i
-	}
-}
-
-func (sl *spinlock) size() int {
-	return len(sl.buf)
-}
-
-func (sl *spinlock) get(idx int) int {
-	return sl.buf[idx % len(sl.buf)]
-}
-
-func (sl *spinlock) position() int {
-	return sl.pos
-}
-
-func (sl *spinlock) find(val int) int {
-	for i, v := range sl.buf {
-		if v == val {
-			return i
+	for sl.siz < size {
+		nod := sl.cur
+		for i := 0; i < sl.stp; i++ {
+			nod = nod.nxt
+			if nod == nil {
+				nod = &sl.nds[0]
+			}
 		}
+
+		new := &sl.nds[sl.siz]
+		new.nxt = nod.nxt
+		nod.nxt = new
+
+		sl.cur = new
+
+		sl.siz++
 	}
-	return -1
 }
 
 func (sl *spinlock) String() string {
-	buf := sl.buf
-	pos := sl.pos
-
 	var b bytes.Buffer
 	appendf := func(format string, a ...interface{}) {
 		fmt.Fprintf(&b, format, a...)
 	}
 
-	v := buf[0]
-	if pos == 0 {
-		appendf("(%d)", v)
-		
+	nod := &sl.nds[0]
+	cur := sl.cur
+	val := nod.val
+	if nod == cur {
+		appendf("(%d)", val)
+
 	} else {
-		appendf("%d", v)
+		appendf("%d", val)
 	}
 
-	len := len(buf)
-	for i := 1; i < len; i++ {
-		v = buf[i]
-		switch i {
-			case pos: appendf(" (%d)", v)
-			case pos+1 : appendf(" %d", v)
-			default: appendf("  %d", v)
+	for i := 1; i < sl.siz; i++ {
+		nod = nod.nxt
+		val = nod.val
+		switch nod {
+		case cur:
+			appendf(" (%d)", val)
+		case cur.nxt:
+			appendf(" %d", val)
+		default:
+			appendf("  %d", val)
 		}
 	}
 
 	return b.String()
 }
 
-
 // Day17 is the 17th day in Advent of Code.
 func Day17() *day.Day {
 
 	solve := func() (interface{}, interface{}) {
-		sl := newSpinlock(343, 50000000)
+		stp := 343
+		sl := newSpinlock(stp, 2018)
 		sl.advanceTo(2018)
+		pt1 := sl.nds[2017].nxt.val
 
-		pt1 := sl.get(sl.position() + 1)
+		idx := 0
+		pt2 := 0
+		for siz := 1; siz < 50000000; siz++ {
+			idx = ((idx + stp) % siz) + 1
+			if idx == 1 {
+				pt2 = siz
+			}
+		}
 
-		//sl.advanceTo(50000000)
-		
-		//pt2 := sl.get(sl.find(0) + 1)
-		
-		return pt1, -1
+		return pt1, pt2
 	}
 
 	return day.New(17, "Spinlock", solve)

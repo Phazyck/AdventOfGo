@@ -37,6 +37,8 @@ func main() {
 		days.Day15(),
 		days.Day16(),
 		days.Day17(),
+		days.Day18(),
+		days.Day19(),
 	}
 
 	//printAll(days)
