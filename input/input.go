@@ -8,7 +8,7 @@ import (
 	"path"
 	"runtime"
 
-	"github.com/Phazyck/AdventOfGo/assert"
+	"github.com/phazyck/adventofgo/assert"
 )
 
 func getPath(day int) string {

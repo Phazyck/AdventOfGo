@@ -3,8 +3,8 @@ package days
 import (
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
 )
 
 func solveInput(input string) (interface{}, interface{}) {

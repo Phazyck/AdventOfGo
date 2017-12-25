@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/phazyck/adventofgo/day"
 )
 
 type node struct {

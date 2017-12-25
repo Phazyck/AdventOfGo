@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/days"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/days"
 )
 
 func printAll(days []*day.Day) {

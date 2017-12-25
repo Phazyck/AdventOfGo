@@ -7,10 +7,10 @@ import (
 	"os"
 	"sort"
 
-	"github.com/Phazyck/AdventOfGo/assert"
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
+	"github.com/phazyck/adventofgo/assert"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
+	"github.com/phazyck/adventofgo/parse"
 )
 
 // Day02 is the 2nd day in Advent of Code.

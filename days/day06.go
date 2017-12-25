@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"fmt"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
+	"github.com/phazyck/adventofgo/parse"
 )
 
 // Day06 is the 6th day in Advent of Code.

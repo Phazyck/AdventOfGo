@@ -3,9 +3,9 @@ package days
 import (
 	"bufio"
 
-	"github.com/Phazyck/AdventOfGo/assert"
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/phazyck/adventofgo/assert"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
 )
 
 // Day09 is the 9th day in Advent of Code.

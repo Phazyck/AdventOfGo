@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/test"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/test"
 )
 
 func testDay(t *testing.T, d *day.Day, expected1, expected2 interface{}) {

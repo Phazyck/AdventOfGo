@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
 )
 
 // Day19 is the 19th day in Advent of Code.

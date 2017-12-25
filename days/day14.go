@@ -3,7 +3,7 @@ package days
 import (
 	"fmt"
 
-	"github.com/Phazyck/AdventOfGo/day"
+	"github.com/phazyck/adventofgo/day"
 )
 
 func fillGroup(memory [][]byte, i, j int, id byte) {
@@ -85,8 +85,8 @@ func solveDay14(key string) (interface{}, interface{}) {
 		}
 	}
 
-	print(memory)
-	fmt.Println()
+	//print(memory)
+	//fmt.Println()
 
 	return used, groups
 }

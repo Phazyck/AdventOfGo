@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/stack"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
+	"github.com/phazyck/adventofgo/stack"
 )
 
 type duet struct {

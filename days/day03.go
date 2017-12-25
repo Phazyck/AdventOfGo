@@ -1,6 +1,6 @@
 package days
 
-import "github.com/Phazyck/AdventOfGo/day"
+import "github.com/phazyck/adventofgo/day"
 
 func abs(i int) int {
 	if i < 0 {

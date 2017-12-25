@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/assert"
+	"github.com/phazyck/adventofgo/assert"
 )
 
 // AssertInt parses an integer from the given string, ignoring whitespace and newlines.

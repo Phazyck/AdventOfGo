@@ -5,10 +5,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
-	"github.com/Phazyck/AdventOfGo/stack"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
+	"github.com/phazyck/adventofgo/parse"
+	"github.com/phazyck/adventofgo/stack"
 )
 
 // Day12 is the 12th day in Advent of Code.

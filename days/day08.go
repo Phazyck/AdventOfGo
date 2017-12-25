@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
 )
 
 // Day08 is the 8th day in Advent of Code.

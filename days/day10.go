@@ -4,9 +4,9 @@ import (
 	"encoding/hex"
 	"strings"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
+	"github.com/phazyck/adventofgo/parse"
 )
 
 func makeList(size int) []byte {

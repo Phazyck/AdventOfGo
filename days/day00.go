@@ -1,6 +1,6 @@
 package days
 
-import "github.com/Phazyck/AdventOfGo/day"
+import "github.com/phazyck/adventofgo/day"
 
 // Day00 is the 00th day in Advent of Code.
 // (Actually, it's a template for implementing days.)

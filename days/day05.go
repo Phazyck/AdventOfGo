@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"os"
 
-	"github.com/Phazyck/AdventOfGo/day"
-	"github.com/Phazyck/AdventOfGo/input"
-	"github.com/Phazyck/AdventOfGo/parse"
+	"github.com/phazyck/adventofgo/day"
+	"github.com/phazyck/adventofgo/input"
+	"github.com/phazyck/adventofgo/parse"
 )
 
 // Day05 is the 5th day in Advent of Code.
