@@ -238,3 +238,31 @@ func TestDay16Examples(t *testing.T) {
 func TestDay16Solutions(t *testing.T) {
 	testDay(t, Day16(), "ehdpincaogkblmfj", "bpcekomfgjdlinha")
 }
+
+// TestDay17Examples tests that solveInput works for the examples of day 17
+func TestDay17Examples(t *testing.T) {
+	sl := newSpinlock(3, 2018)
+	expectedStrings := []string {
+		"(0)",
+		"0 (1)",
+		"0 (2) 1",
+		"0  2 (3) 1",
+		"0  2 (4) 3  1",
+		"0 (5) 2  4  3  1",
+		"0  5  2  4  3 (6) 1",
+		"0  5 (7) 2  4  3  6  1",
+		"0  5  7  2  4  3 (8) 6  1",
+		"0 (9) 5  7  2  4  3  8  6  1",
+	}
+
+	for i, expected := range expectedStrings {
+		sl.advanceTo(i+1)
+		actual := sl.String()
+		test.AssertEqual(t, actual, expected)
+	}
+}
+
+// TestDay17Solutions tests that the solutions for day 17 are correct.
+func TestDay17Solutions(t *testing.T) {
+	testDay(t, Day17(), 1914, -1)
+}
